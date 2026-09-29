@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff8ee">
+<title>特教宣導互動學習站</title>
+<style>
+:root{
+  --bg:#fff9f3;--card:#fff;--ink:#243047;--muted:#667085;--line:#e9ded3;
+  --orange:#ff8a4c;--orange2:#ffb36b;--green:#2b9c73;--red:#d94b5b;
+  --bluebg:#eef8ff;--yellow:#fff7d9;--purple:#f5f0ff;--shadow:0 12px 34px rgba(89,64,41,.10)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft JhengHei","PingFang TC",system-ui,sans-serif}
+button,a{font:inherit}
+.wrap{width:min(1080px,calc(100% - 24px));margin:auto;padding:14px 0 56px}
+.top{position:sticky;top:0;z-index:20;background:rgba(255,249,243,.94);backdrop-filter:blur(8px);display:flex;gap:14px;align-items:center;justify-content:space-between;padding:8px 0}
+.brand{font-weight:900;display:flex;align-items:center;gap:10px}.logo{width:44px;height:44px;border-radius:14px;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow);font-size:24px}
+.prog{display:flex;align-items:center;gap:8px;min-width:210px}.track{height:10px;background:#eee7df;border-radius:99px;overflow:hidden;flex:1}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--orange),#ffd166);transition:.3s}.count{font-size:13px;font-weight:900}
+.hero{margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:34px;display:grid;grid-template-columns:1.22fr .78fr;gap:24px;align-items:center}
+.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.08;margin:10px 0}.hero p{font-size:18px;line-height:1.8;color:var(--muted)}
+.tag{display:inline-block;padding:7px 11px;border-radius:999px;background:#fff2e6;color:#8f4e27;font-weight:900;font-size:14px}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.hero-quiz{display:inline-block;text-decoration:none;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;padding:14px 18px;border-radius:15px;font-weight:900}.hero-learn{display:inline-block;text-decoration:none;background:#f6f8fb;color:var(--ink);border:1px solid #e1e5ea;padding:14px 18px;border-radius:15px;font-weight:900}
+.art{min-height:250px;border-radius:24px;background:linear-gradient(145deg,#fff3dd,#eefbff);display:grid;place-items:center;text-align:center;font-size:70px;padding:18px}.art small{display:block;font-size:15px;color:var(--muted);font-weight:800;margin-top:12px;line-height:1.5}
+.nav{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:18px 0 28px}.nav a{text-decoration:none;color:var(--ink);font-weight:900;text-align:center;background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px 9px}
+.section{margin:34px 0}.head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}.head h2{font-size:clamp(26px,4vw,39px);margin:0 0 5px}.head p{margin:0;color:var(--muted);line-height:1.7}
+.speak{width:44px;height:44px;min-width:44px;border-radius:13px;border:1px solid #e1e5ea;background:#f7f9fb;font-size:19px;cursor:pointer}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;min-height:210px}.emo{font-size:36px}.card h3{margin:8px 0 6px}.card p{margin:0;color:var(--muted);line-height:1.72}.card .speak{float:right;margin-top:12px}
+.note{background:var(--yellow);border:1px solid #f0dfa5;border-radius:20px;padding:18px;line-height:1.75;margin-top:14px}
+.supports{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.support{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:start}.ico{width:60px;height:60px;border-radius:17px;background:var(--bluebg);display:grid;place-items:center;font-size:30px}.support h3{margin:2px 0 6px}.support p{margin:0;color:var(--muted);line-height:1.65}
+.glossary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.term{background:#fff;border:1px solid var(--line);border-radius:20px;padding:17px}.term h3{margin:0 0 8px;font-size:20px}.term p{margin:0;color:var(--muted);line-height:1.68}
+.scenarios{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.scenario{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}.scenario h3{margin:0 0 6px}.scenario p{margin:0 0 12px;color:var(--muted);line-height:1.65}
+.opts{display:grid;gap:8px}.opt{border:2px solid #e6e7ea;background:#fff;border-radius:14px;padding:11px 13px;text-align:left;font-weight:800;cursor:pointer}.opt.ok{border-color:#7ac8aa;background:#eefaf5}.opt.no{border-color:#efa1aa;background:#fff3f4}.fb{display:none;margin-top:10px;background:#f7f8fa;border-radius:12px;padding:11px 13px;line-height:1.6}.fb.show{display:block}
+.myths{display:grid;gap:12px}.myth{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.myth strong{display:block;margin-bottom:4px}.myth span{color:var(--muted);line-height:1.6}.mythBtns{display:flex;gap:8px}.mythBtns button{border:1px solid #e1e4e8;background:#f8fafc;border-radius:12px;padding:9px 12px;font-weight:900;cursor:pointer}.mythResult{display:none;grid-column:1/-1;background:#f5f7fa;border-radius:12px;padding:10px 12px;line-height:1.6}.mythResult.show{display:block}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;text-align:center}.num{width:38px;height:38px;border-radius:50%;background:#fff0e5;color:#9a5128;display:grid;place-items:center;margin:0 auto 9px;font-weight:900}
+.finish{background:linear-gradient(135deg,#fff4df,#effbff);border:1px solid #eadcc9;border-radius:24px;padding:26px;text-align:center;margin-top:36px}.finish h2{font-size:32px;margin:0 0 8px}.finish p{color:var(--muted);line-height:1.75}
+.checks{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0 18px}.check{background:#fff;border:1px solid #dfe3e8;border-radius:999px;padding:8px 11px;font-weight:900;color:#667085}.check.done{background:#eefaf5;border-color:#9dd7c0;color:#257b5b}
+.cta{display:inline-block;text-decoration:none;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;padding:15px 20px;border-radius:15px;font-weight:900;font-size:18px}.cta.disabled{opacity:.45;pointer-events:none}.small{font-size:13px;color:#7a6d63;margin-top:10px}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding:22px}.art{min-height:180px;font-size:54px}.nav{grid-template-columns:repeat(2,1fr)}.cards,.glossary{grid-template-columns:1fr}.supports,.scenarios{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.steps{grid-template-columns:1fr}.support{grid-template-columns:52px 1fr}.support .speak{grid-column:2}.myth{grid-template-columns:1fr}.prog{min-width:145px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><div class="logo">🌈</div><div>特教宣導互動學習站</div></div>
+    <div class="prog"><div class="track"><div id="bar" class="bar"></div></div><div id="count" class="count">0 / 5</div></div>
+  </div>
+
+  <section class="hero">
+    <div>
+      <span class="tag">校慶園遊會・闖關前先來認識</span>
+      <h1>每個人不一樣，<br>都可以一起學習。</h1>
+      <p>有人讀得比較慢、有人需要安靜一點、有人使用輪椅、有人會使用平板或語音輸入。差異不是奇怪，而是每個人有不同的學習方式與需要。</p>
+      <div class="hero-actions">
+        <a class="hero-quiz" href="quiz.html">🎯 直接開始測驗</a>
+        <a class="hero-learn" href="#a">📖 先看看宣導內容</a>
+      </div>
+    </div>
+    <div class="art">🧒🏻 👧🏻 🧑🏻‍🦽 🧑🏻‍💻<small>理解差異・尊重需要・友善互助</small></div>
+  </section>
+
+  <nav class="nav">
+    <a href="#a">① 認識差異</a><a href="#b">② 學習支持</a><a href="#c">③ 友善行動</a><a href="#d">④ 情境練習</a><a href="#e">⑤ 迷思挑戰</a>
+  </nav>
+
+  <section class="section" id="a" data-section="a">
+    <div class="head"><div><h2>① 每個人的學習方式不一樣</h2><p>不是誰比較好或比較差，而是適合的學習方式可能不同。</p></div><button class="speak" data-speak="每個人的學習方式不一樣。有人閱讀比較慢，有人需要比較安靜的環境，也有人需要多一點時間表達。">🔊</button></div>
+    <div class="cards">
+      <article class="card"><div class="emo">📖</div><h3>閱讀速度不同</h3><p>讀得慢不代表不認真。有些同學需要多一點時間看懂文字、找重點或理解題目。</p><button class="speak" data-speak="閱讀速度不同。讀得慢不代表不認真。">🔊</button></article>
+      <article class="card"><div class="emo">✍️</div><h3>書寫方式不同</h3><p>有些同學知道答案，但手寫速度較慢，可能會使用鍵盤、語音輸入或其他工具協助表達。</p><button class="speak" data-speak="有些同學會用鍵盤或語音輸入協助書寫。">🔊</button></article>
+      <article class="card"><div class="emo">🗣️</div><h3>表達速度不同</h3><p>有些同學需要較多時間整理想法。耐心等他把話說完，不急著替他回答，就是尊重。</p><button class="speak" data-speak="有些同學需要較多時間表達。耐心等他說完，就是尊重。">🔊</button></article>
+      <article class="card"><div class="emo">🎧</div><h3>環境需要不同</h3><p>耳罩、安靜座位或減少環境干擾，能幫助某些同學更容易專心。</p><button class="speak" data-speak="耳罩或安靜座位，可以幫助需要的同學專心。">🔊</button></article>
+      <article class="card"><div class="emo">🧠</div><h3>記住步驟的方式不同</h3><p>有人需要口頭提醒，有人適合圖片、步驟卡或把任務分成小步驟。</p><button class="speak" data-speak="有些同學需要圖片、步驟卡或小步驟來幫助記住任務。">🔊</button></article>
+      <article class="card"><div class="emo">⏳</div><h3>完成任務的時間不同</h3><p>需要比較久，不代表不會。多一點時間，可能就能把真正的能力表現出來。</p><button class="speak" data-speak="需要比較久，不代表不會。多一點時間，可以幫助同學表現真正的能力。">🔊</button></article>
+    </div>
+    <div class="note">💡 <strong>公平不一定是大家完全一樣，</strong>而是每個人都能得到適合自己的支持。</div>
+  </section>
+
+  <section class="section" id="b" data-section="b">
+    <div class="head"><div><h2>② 這些是學習支持，不是特權</h2><p>支持的目的，是讓學生能參與、理解、表達，也有機會展現自己真正會的能力。</p></div><button class="speak" data-speak="這些是學習支持，不是特權。支持可以幫助學生參與、理解和表達。">🔊</button></div>
+    <div class="supports">
+      <article class="support"><div class="ico">⏱️</div><div><h3>延長作答時間</h3><p>有些學生需要較多時間閱讀、理解或書寫，所以可能有延長作答時間的調整。</p></div><button class="speak" data-speak="延長作答時間，是依照學生需要提供的調整。">🔊</button></article>
+      <article class="support"><div class="ico">💻</div><div><h3>平板、鍵盤、語音輸入</h3><p>這些工具可以協助閱讀、書寫或表達，重點仍然是學生自己的想法與學習。</p></div><button class="speak" data-speak="平板、鍵盤或語音輸入，可以協助學生表達。">🔊</button></article>
+      <article class="support"><div class="ico">🦽</div><div><h3>行動與通道支持</h3><p>輪椅是使用者行動的一部分。保持通道暢通，協助前要先詢問，不任意碰觸。</p></div><button class="speak" data-speak="保持通道暢通，幫助使用輪椅的同學前要先詢問。">🔊</button></article>
+      <article class="support"><div class="ico">🌿</div><div><h3>安靜區與冷靜空間</h3><p>情緒很激動時，降低刺激、保留空間，再由老師協助，通常比圍觀更有幫助。</p></div><button class="speak" data-speak="情緒很激動時，可以降低刺激，保留空間，再由老師協助。">🔊</button></article>
+      <article class="support"><div class="ico">🪜</div><div><h3>小步驟與視覺提示</h3><p>把複雜任務拆成清楚的小步驟，搭配圖片或提示卡，可以幫助理解與完成。</p></div><button class="speak" data-speak="把任務拆成小步驟，搭配圖片或提示卡，可以幫助理解。">🔊</button></article>
+      <article class="support"><div class="ico">👥</div><div><h3>同儕與老師提醒</h3><p>適當提醒可以幫助學生知道「現在要做什麼」，但不代表所有事情都替他完成。</p></div><button class="speak" data-speak="適當提醒可以幫助學生知道現在要做什麼，但不是替他完成所有事情。">🔊</button></article>
+    </div>
+  </section>
+
+  <section class="section" id="c" data-section="c">
+    <div class="head"><div><h2>③ 成為友善同學，可以這樣做</h2><p>真正的幫助，是先尊重對方，再提供適合的支持。</p></div><button class="speak" data-speak="成為友善同學，可以先詢問、給時間、尊重差異、保留空間。">🔊</button></div>
+    <div class="glossary">
+      <article class="term"><h3>🤝 先詢問</h3><p>想幫忙時，可以先問：「你需要我幫忙嗎？」不要直接替對方做決定。</p></article>
+      <article class="term"><h3>⏳ 給時間</h3><p>有人需要多一點時間閱讀、思考或說話。不要一直催促，也不要搶著回答。</p></article>
+      <article class="term"><h3>👀 不圍觀</h3><p>同學情緒不穩或正在處理困難時，圍觀、起鬨或拍照都可能增加壓力。</p></article>
+      <article class="term"><h3>🚪 保持空間</h3><p>走道、教室動線與座位安排，對使用輪椅或需要較少干擾的同學都很重要。</p></article>
+      <article class="term"><h3>🧩 尊重不同方式</h3><p>有人用平板、有人用語音輸入、有人需要圖卡。方式不同，不代表比較差。</p></article>
+      <article class="term"><h3>💬 使用友善語言</h3><p>不嘲笑、不模仿、不貼標籤。可以描述需要，而不是用負面稱呼定義一個人。</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="d" data-section="d">
+    <div class="head"><div><h2>④ 如果是你，你會怎麼做？</h2><p>完成 6 個情境練習。答錯也沒關係，看看說明就學會了。</p></div><button class="speak" data-speak="如果是你，你會怎麼做？請選擇最友善的做法。">🔊</button></div>
+    <div class="scenarios">
+      <article class="scenario" data-correct="1"><h3>📚 情境 A</h3><p>同學還在讀題，你已經做完了。</p><div class="opts"><button class="opt" data-choice="0">催他快一點</button><button class="opt" data-choice="1">安靜等一下，需要時再幫忙</button><button class="opt" data-choice="2">直接告訴他答案</button></div><div class="fb">耐心等候，比催促或代替作答更尊重同學。</div></article>
+      <article class="scenario" data-correct="2"><h3>🦽 情境 B</h3><p>使用輪椅的同學要通過走道。</p><div class="opts"><button class="opt" data-choice="0">直接拉他的輪椅</button><button class="opt" data-choice="1">站在前面看</button><button class="opt" data-choice="2">讓出通道，需要時先詢問</button></div><div class="fb">保持走道暢通，協助前先詢問，是尊重又安全的做法。</div></article>
+      <article class="scenario" data-correct="0"><h3>🌿 情境 C</h3><p>同學情緒很激動，老師讓他到安靜區。</p><div class="opts"><button class="opt" data-choice="0">給他空間，讓老師協助</button><button class="opt" data-choice="1">大家圍過去看</button><button class="opt" data-choice="2">拍照傳給朋友</button></div><div class="fb">情緒高漲時，減少刺激、避免圍觀，通常更有幫助。</div></article>
+      <article class="scenario" data-correct="1"><h3>🤝 情境 D</h3><p>你不確定同學需不需要幫忙。</p><div class="opts"><button class="opt" data-choice="0">直接替他完成</button><button class="opt" data-choice="1">先問：「你需要我幫忙嗎？」</button><button class="opt" data-choice="2">找很多人一起幫</button></div><div class="fb">先詢問，是最尊重對方自主的做法。</div></article>
+      <article class="scenario" data-correct="2"><h3>💻 情境 E</h3><p>同學用語音輸入完成作業。</p><div class="opts"><button class="opt" data-choice="0">笑他不會寫字</button><button class="opt" data-choice="1">說他一定在作弊</button><button class="opt" data-choice="2">尊重他使用適合的工具</button></div><div class="fb">輔助科技是學習支持，重點是幫助學生表達自己的想法。</div></article>
+      <article class="scenario" data-correct="1"><h3>🗣️ 情境 F</h3><p>同學回答問題時停頓很久。</p><div class="opts"><button class="opt" data-choice="0">幫他把答案說完</button><button class="opt" data-choice="1">耐心等他表達完</button><button class="opt" data-choice="2">請他不要再回答</button></div><div class="fb">等待對方完成表達，是一種尊重，也讓他有機會練習。</div></article>
+    </div>
+  </section>
+
+  <section class="section" id="e" data-section="e">
+    <div class="head"><div><h2>⑤ 特教迷思小挑戰</h2><p>判斷下面的說法是對還是錯。</p></div><button class="speak" data-speak="特教迷思小挑戰。請判斷下面的說法是對還是錯。">🔊</button></div>
+    <div class="myths">
+      <div class="myth" data-answer="false"><div><strong>「學習障礙就是不努力。」</strong><span>學習困難和努力程度不是同一件事。</span></div><div class="mythBtns"><button data-value="true">對</button><button data-value="false">錯</button></div><div class="mythResult">答案是「錯」。有些學生在特定學習歷程上較困難，但仍可以透過合適的方法學習。</div></div>
+      <div class="myth" data-answer="true"><div><strong>「公平不一定代表每個人得到完全一樣的東西。」</strong><span>依照需要提供支持，也是一種公平。</span></div><div class="mythBtns"><button data-value="true">對</button><button data-value="false">錯</button></div><div class="mythResult">答案是「對」。不同的人可能需要不同的時間、工具或環境。</div></div>
+      <div class="myth" data-answer="false"><div><strong>「使用語音輸入或平板就是作弊。」</strong><span>輔助工具的目的是幫助學生表達與參與。</span></div><div class="mythBtns"><button data-value="true">對</button><button data-value="false">錯</button></div><div class="mythResult">答案是「錯」。適當的輔助科技是一種學習支持。</div></div>
+      <div class="myth" data-answer="false"><div><strong>「看到同學情緒失控，大家一起過去關心最好。」</strong><span>太多人靠近可能增加刺激。</span></div><div class="mythBtns"><button data-value="true">對</button><button data-value="false">錯</button></div><div class="mythResult">答案是「錯」。適當保留空間，讓老師或熟悉的大人協助通常更合適。</div></div>
+      <div class="myth" data-answer="true"><div><strong>「想幫忙時，先問對方需不需要，是尊重的做法。」</strong><span>幫忙也要尊重對方的選擇。</span></div><div class="mythBtns"><button data-value="true">對</button><button data-value="false">錯</button></div><div class="mythResult">答案是「對」。先詢問能避免好心卻造成不方便。</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="head"><div><h2>記住這 4 件事就很棒</h2><p>遇到不同需要的同學，可以從這四步開始。</p></div></div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>先看見</h3><p>注意每個人的需要可能不同。</p></div>
+      <div class="step"><div class="num">2</div><h3>先詢問</h3><p>想幫忙時，先問需不需要。</p></div>
+      <div class="step"><div class="num">3</div><h3>給時間</h3><p>不要催促，讓同學有時間完成。</p></div>
+      <div class="step"><div class="num">4</div><h3>尊重差異</h3><p>不同的支持不是特權，而是需要。</p></div>
+    </div>
+  </section>
+
+  <section class="finish">
+    <h2>準備好挑戰了嗎？ 🎯</h2>
+    <p>你可以自由瀏覽上面的宣導內容，也可以直接進入特教宣導測驗。系統會從題庫中隨機抽出 10 題，題目與選項每次都會重新排列。10 題全部答對才算闖關成功，共有 2 次機會。</p>
+    <div class="checks"><span class="check" data-check="a">① 認識差異</span><span class="check" data-check="b">② 學習支持</span><span class="check" data-check="c">③ 友善行動</span><span class="check" data-check="d">④ 情境練習</span><span class="check" data-check="e">⑤ 迷思挑戰</span></div>
+    <a id="quizLink" class="cta" href="quiz.html">前往特教宣導測驗 →</a>
+    <div class="small">互動學習內容可自由瀏覽，不必全部完成也能直接進行測驗。本網站可離線使用，也可部署到 GitHub Pages。</div>
+  </section>
+</div>
+
+<script>
+const done={a:false,b:false,c:false,d:false,e:false},practiceDone=new Set(),mythDone=new Set();
+function stopSpeech(){if("speechSynthesis" in window) speechSynthesis.cancel()}
+function speak(t){if(!("speechSynthesis" in window)){alert("目前瀏覽器不支援報讀功能，建議使用 Chrome、Edge 或 Safari。");return}stopSpeech();const u=new SpeechSynthesisUtterance(t);u.lang="zh-TW";u.rate=.88;speechSynthesis.speak(u)}
+document.querySelectorAll("[data-speak]").forEach(b=>b.addEventListener("click",()=>speak(b.dataset.speak)));
+function mark(k){if(done[k])return;done[k]=true;update()}
+function update(){const n=Object.values(done).filter(Boolean).length;document.getElementById("bar").style.width=(n/5*100)+"%";document.getElementById("count").textContent=n+" / 5";document.querySelectorAll("[data-check]").forEach(x=>x.classList.toggle("done",!!done[x.dataset.check]))}
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&e.intersectionRatio>.42&&["a","b","c"].includes(e.target.dataset.section))mark(e.target.dataset.section)}),{threshold:[.42]});
+document.querySelectorAll("[data-section]").forEach(s=>obs.observe(s));
+document.querySelectorAll(".scenario").forEach((card,i)=>{card.querySelectorAll(".opt").forEach(btn=>btn.addEventListener("click",()=>{if(card.dataset.done)return;card.dataset.done="1";card.querySelectorAll(".opt").forEach(b=>{if(b.dataset.choice===card.dataset.correct)b.classList.add("ok");else if(b===btn)b.classList.add("no");b.disabled=true});card.querySelector(".fb").classList.add("show");practiceDone.add(i);if(practiceDone.size===document.querySelectorAll(".scenario").length)mark("d")}))});
+document.querySelectorAll(".myth").forEach((card,i)=>{card.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{if(card.dataset.done)return;card.dataset.done="1";const right=btn.dataset.value===card.dataset.answer;btn.style.background=right?"#eefaf5":"#fff3f4";card.querySelectorAll("button").forEach(b=>b.disabled=true);card.querySelector(".mythResult").classList.add("show");mythDone.add(i);if(mythDone.size===document.querySelectorAll(".myth").length)mark("e")}))});
+
+update();
+</script>
+</body>
+</html>
