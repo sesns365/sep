@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff8ee">
+<title>特教宣導闖關測驗</title>
+<style>
+:root{--bg:#fff8ee;--card:#fff;--ink:#243047;--muted:#667085;--primary:#ff8a4c;--primary2:#ffb36b;--good:#239b73;--bad:#d94b5b;--line:#e7e7e7;--shadow:0 14px 38px rgba(89,64,41,.12)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"Microsoft JhengHei","PingFang TC",system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+body{display:flex;justify-content:center;padding:20px 12px 40px}.app{width:min(900px,100%)}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.brand{display:flex;align-items:center;gap:10px;font-weight:900}.brand-icon{width:42px;height:42px;border-radius:14px;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow);font-size:24px}.pill{font-size:14px;font-weight:800;background:#fff;border:1px solid #f2dcc7;padding:8px 12px;border-radius:999px}
+.card{background:#fff;border:1px solid #eadfd3;border-radius:24px;box-shadow:var(--shadow);overflow:hidden}.hero,.quiz,.result{padding:30px}.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;align-items:center}.hero h1{font-size:clamp(30px,5vw,50px);line-height:1.14;margin:10px 0 14px}.hero p{font-size:18px;line-height:1.8;color:var(--muted)}.art{min-height:230px;border-radius:22px;background:linear-gradient(145deg,#fff4df,#eefbff);display:grid;place-items:center;text-align:center;font-size:68px;padding:18px}.art small{display:block;font-size:15px;color:var(--muted);font-weight:800;margin-top:12px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.rule{background:#fffaf4;border:1px solid #f1e3d7;border-radius:16px;padding:14px;text-align:center}.rule strong{display:block;font-size:21px;color:#8b4f2c}.rule span{font-size:13px;color:var(--muted)}
+button,a{font:inherit}button{border:0;border-radius:16px;padding:14px 18px;font-size:17px;font-weight:900;cursor:pointer}.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}.btn-secondary{background:#f4f7fb;color:#344054;border:1px solid #e4e7ec}.hidden{display:none!important}
+.progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:18px}.progress{height:12px;background:#f1ece6;border-radius:999px;overflow:hidden;flex:1}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#ffd166);transition:.3s}.count{font-weight:900;min-width:78px;text-align:right}.attempt{text-align:center;font-weight:900;color:#7a563e;margin-bottom:8px}
+.question-row{display:flex;align-items:flex-start;gap:10px}.question{font-size:clamp(23px,3.7vw,33px);line-height:1.5;margin:14px 0 20px;font-weight:900;flex:1}.speak-icon,.answer-speak{flex:0 0 auto;width:46px;height:46px;padding:0;border-radius:14px;background:#f4f7fb;border:1px solid #e4e7ec;color:#344054;font-size:20px}.speak-icon{margin-top:14px}
+.answers{display:grid;gap:12px}.answer-row{display:grid;grid-template-columns:1fr 48px;gap:8px;align-items:stretch}.answer{width:100%;text-align:left;background:#fff;border:2px solid var(--line);color:var(--ink);padding:16px 18px;border-radius:18px;font-size:17px;line-height:1.55}.answer.correct{border-color:#74c9ad;background:#eefaf6}.answer.wrong{border-color:#ef9aa5;background:#fff2f4}.answer.dim{opacity:.62}
+.explain{display:none;margin-top:18px;padding:18px;border-radius:18px;background:#f8fafc;border:1px solid #e6eaf0;line-height:1.75}.explain.show{display:block}.explain.good{background:#eefaf6}.explain.bad{background:#fff4f5}.nav{display:flex;justify-content:flex-end;margin-top:18px}
+.result{text-align:center}.result .big{font-size:72px;margin:2px 0 8px}.result h2{font-size:clamp(30px,5vw,46px);margin:8px 0}.score{font-size:26px;font-weight:1000;margin:10px 0}.passbox{margin:20px auto;max-width:580px;padding:24px;border-radius:22px;background:linear-gradient(135deg,#fff5d8,#effcff);border:2px dashed #efb359}.ticket{font-size:24px;font-weight:1000;color:#7d4a25}
+.review{text-align:left;margin-top:24px}.review h3{font-size:22px}.review-item{padding:14px 16px;border:1px solid #e8e8e8;border-radius:16px;margin:10px 0}.review-item .q{font-weight:900;margin-bottom:6px}.ok{color:var(--good);font-weight:900}.no{color:var(--bad);font-weight:900}.footer{text-align:center;color:#8a7a6d;font-size:13px;margin-top:14px}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;top:-20px;font-style:normal;animation:fall 2.2s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
+@media(max-width:720px){.hero,.quiz,.result{padding:20px}.hero-grid{grid-template-columns:1fr}.rules{grid-template-columns:1fr}.art{min-height:170px;font-size:52px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar"><div class="brand"><div class="brand-icon">🌈</div><div>校慶園遊會・特教宣導站</div></div><div class="pill">隨機 10 題挑戰</div></div>
+
+  <section id="startScreen" class="card hero">
+    <div class="hero-grid">
+      <div>
+        <div class="pill" style="display:inline-block">認識差異・友善同行</div>
+        <h1>特教宣導<br>闖關小遊戲</h1>
+        <p>每次會從題庫中隨機抽出 10 題，題目順序與四個選項都會重新排列。</p>
+        <div class="rules">
+          <div class="rule"><strong>隨機 10 題</strong><span>每次題目可能不同</span></div>
+          <div class="rule"><strong>全對過關</strong><span>10 / 10 才能拿獎品</span></div>
+          <div class="rule"><strong>2 次機會</strong><span>第二次重新抽題</span></div>
+        </div>
+        <button id="startBtn" class="btn-primary">開始挑戰 🚀</button>
+        <a href="index.html" class="btn-secondary" style="display:inline-block;text-decoration:none;margin-left:8px">回學習站</a>
+      </div>
+      <div class="art">🧒🏻 👧🏻 🧑🏻‍🦽<small>看見差異，也看見每個人的需要</small></div>
+    </div>
+  </section>
+
+  <section id="quizScreen" class="card quiz hidden">
+    <div id="attemptText" class="attempt"></div>
+    <div class="progress-wrap"><div class="progress"><div id="bar" class="bar"></div></div><div id="count" class="count"></div></div>
+    <div class="question-row"><div id="question" class="question"></div><button id="questionSpeakBtn" class="speak-icon" type="button" title="報讀題目">🔊</button></div>
+    <div id="answers" class="answers"></div>
+    <div id="explain" class="explain"></div>
+    <div class="nav"><button id="nextBtn" class="btn-primary hidden">下一題 →</button></div>
+  </section>
+
+  <section id="resultScreen" class="card result hidden">
+    <div id="resultIcon" class="big"></div><h2 id="resultTitle"></h2><div id="scoreText" class="score"></div><p id="resultMsg"></p>
+    <div id="passBox" class="passbox hidden"><div class="ticket">🎁 闖關成功！請向關主出示此畫面兌換小禮物</div></div>
+    <div id="review" class="review"></div>
+    <div id="resultButtons" style="margin-top:24px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"></div>
+  </section>
+  <div class="footer">特教宣導｜理解差異・尊重需要・友善互助</div>
+</div>
+<div id="confetti" class="confetti"></div>
+
+<script>
+const questionBank=[
+{q:"看到同學讀題比較慢，最友善的做法是什麼？",options:["催他快一點完成","笑他讀得太慢","多給一點閱讀時間","直接幫他寫答案"],ans:2,explain:"每個人的閱讀速度不同。多給一點時間，比催促或直接代替作答更能幫助同學學習。"},
+{q:"有些同學上課時需要戴耳罩，可能是因為什麼？",options:["不想聽老師上課","想減少聲音干擾","想和別人不一樣","老師對他比較好"],ans:1,explain:"有些同學對聲音較敏感，耳罩可能是幫助專心的一種支持。"},
+{q:"如果同學使用輪椅，哪一個做法比較適合？",options:["直接幫他推輪椅","保持走道暢通","所有事情替他做","請他不要參加活動"],ans:1,explain:"保持通道暢通很重要。若想幫忙，也應先詢問對方是否需要。"},
+{q:"同學回答問題時需要比較久，我們可以怎麼做？",options:["耐心等他說完","搶著幫他回答","模仿他的說話","請他不要回答"],ans:0,explain:"有些人需要較多時間整理想法或表達。耐心等待、不打斷，是尊重他人的做法。"},
+{q:"「學習障礙」比較接近下面哪一種意思？",options:["只是平常不努力","代表什麼都不會","某些學習較困難","一定是不夠聰明"],ans:2,explain:"學習障礙不是懶惰，也不代表不聰明，而是某些學習歷程可能較困難。"},
+{q:"如果同學情緒很激動，需要到安靜區休息，我們應該怎麼做？",options:["大家圍過去看","不停追問原因","給他適當空間","拍照傳給同學"],ans:2,explain:"情緒升高時，降低刺激、保留空間並讓老師協助，通常更有幫助。"},
+{q:"有些同學考試時可以多一點時間，可能是因為什麼？",options:["老師特別偏心","依照需要做調整","老師偷偷放水","因為他成績很好"],ans:1,explain:"公平不一定代表每個人都完全一樣，而是依照需要提供適當支持。"},
+{q:"看到同學使用平板或語音輸入完成作業，正確的想法是什麼？",options:["他一定在作弊","這是學習輔助工具","他不需要學習了","大家都要一起使用"],ans:1,explain:"科技工具可以協助閱讀、書寫、溝通或專注，是一種學習支持。"},
+{q:"如果不確定同學需不需要幫忙，最好的做法是什麼？",options:["直接替他完成","先問他需不需要","找很多人來幫","假裝完全沒看到"],ans:1,explain:"先詢問對方是否需要協助，可以尊重他的自主。"},
+{q:"特教宣導最希望大家記住哪一件事？",options:["每個人都要一樣","不同的人要分開","尊重彼此的需要","只有老師要知道"],ans:2,explain:"每個人都有不同的學習方式與需要。理解差異、尊重彼此，才能建立友善校園。"},
+{q:"同學使用鍵盤代替手寫，我們應該怎麼看待？",options:["是偷懶的方法","是適合他的工具","代表不用學習","應該禁止使用"],ans:1,explain:"對有需要的學生來說，鍵盤可以協助把想法表達出來。"},
+{q:"老師把一個任務拆成小步驟，主要是為了什麼？",options:["讓事情更複雜","幫助理解與完成","故意拖慢時間","讓同學更依賴"],ans:1,explain:"清楚的小步驟可以降低理解與記憶負擔。"},
+{q:"看到同學忘記現在要做什麼，較友善的做法是？",options:["笑他又忘記了","提醒現在的步驟","直接把作業拿走","請他不要參加"],ans:1,explain:"簡短、清楚的提醒，可以幫助同學重新回到任務。"},
+{q:"同學情緒正在升高時，哪一個做法較適合？",options:["一直跟他爭辯","降低周圍的刺激","叫大家一起看","不停問他原因"],ans:1,explain:"降低刺激、保留空間，通常比爭辯或圍觀更能幫助冷靜。"},
+{q:"有人需要圖片或步驟卡，可能是為了什麼？",options:["幫助理解指令","讓課本更漂亮","可以不用思考","只是老師偏心"],ans:0,explain:"視覺提示能幫助理解步驟、記住任務與知道下一步要做什麼。"},
+{q:"如果同學說話比較慢，下面哪一個行動較合適？",options:["幫他把話說完","耐心等他表達","模仿他的語氣","叫他不要回答"],ans:1,explain:"等待對方完整表達，是尊重，也能讓他有練習機會。"},
+{q:"看到同學使用不同的考試方式，我們可以怎麼想？",options:["一定比較容易","是依需要調整","代表考試無效","只有他有特權"],ans:1,explain:"評量調整的目的，是讓學生有機會表現真正學會的能力。"},
+{q:"對需要安靜環境的同學，下面哪個做法較好？",options:["故意製造聲音","尊重他的座位安排","一直找他聊天","拿走他的耳罩"],ans:1,explain:"尊重適合他的環境與工具，可以幫助他專心。"},
+{q:"看到使用輪椅的同學需要通過，我們可以怎麼做？",options:["站在路中間看","保持走道暢通","抓住輪椅幫推","叫他改走別處"],ans:1,explain:"保持動線暢通，並在提供協助前先詢問。"},
+{q:"有人需要比別人更多時間完成作業，代表什麼？",options:["一定比較不用心","可能需要更多處理時間","一定什麼都不會","老師應該直接代做"],ans:1,explain:"完成速度和能力不是完全相同的事情。"},
+{q:"同學因為挫折開始生氣，哪一個做法較適合？",options:["嘲笑他的反應","給時間慢慢冷靜","大家一起指責","故意繼續刺激"],ans:1,explain:"先讓情緒穩定，再處理問題，通常更有效。"},
+{q:"想幫助同學時，為什麼要先詢問？",options:["尊重他的選擇","只是浪費時間","避免老師看到","讓自己比較輕鬆"],ans:0,explain:"幫忙也要尊重對方的自主與選擇。"},
+{q:"下列哪一個比較像友善校園？",options:["大家都用同方法","需要時提供支持","不同的人分開","不准使用輔具"],ans:1,explain:"友善校園重視參與、尊重差異，也依需要提供支持。"},
+{q:"有些同學需要座位靠前，可能是因為什麼？",options:["想搶最好位置","方便看清與專心","老師比較喜歡他","不用遵守規則"],ans:1,explain:"座位調整可能幫助看清楚、減少干擾或方便老師提示。"},
+{q:"如果你看到別人嘲笑需要支持的同學，可以怎麼做？",options:["一起跟著笑","提醒要尊重他人","把影片傳出去","假裝沒發生"],ans:1,explain:"友善的提醒可以幫助建立尊重差異的班級氣氛。"},
+{q:"使用輔助科技最主要的目的之一是什麼？",options:["取代所有學習","增加參與機會","讓功課變更難","只有娛樂用途"],ans:1,explain:"輔助科技可以幫助閱讀、書寫、表達、溝通與參與。"},
+{q:"當同學需要重複聽一次指令時，我們可以怎麼想？",options:["他一定沒在聽","他可能需要更多處理時間","他故意搗蛋","他不該再問"],ans:1,explain:"有些人需要重複或更清楚的指令，才能順利理解。"},
+{q:"看到同學使用圖卡提醒步驟，較適合的反應是？",options:["拿走他的圖卡","尊重他使用提示","笑他記不住","故意打亂順序"],ans:1,explain:"圖卡是協助理解與自我管理的支持工具。"},
+{q:"哪一個說法最符合尊重差異？",options:["所有人都要相同","每個人需求不同","不同就不能合作","需要幫忙很丟臉"],ans:1,explain:"每個人的優勢與需要不同，仍然可以一起學習與合作。"},
+{q:"如果同學在團體活動中需要多一次示範，最適合怎麼做？",options:["給他一次示範","叫他自己猜","直接取消參加","大家一起催促"],ans:0,explain:"多一次清楚示範，可以幫助理解規則與步驟。"}
+];
+
+let attempt=1,index=0,score=0,selected=[],locked=false,currentQuiz=[];
+const $=s=>document.querySelector(s);
+const startScreen=$("#startScreen"),quizScreen=$("#quizScreen"),resultScreen=$("#resultScreen"),questionEl=$("#question"),answersEl=$("#answers"),explainEl=$("#explain"),nextBtn=$("#nextBtn"),bar=$("#bar"),count=$("#count");
+
+function shuffleArray(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function buildQuiz(){
+  const picked=shuffleArray(questionBank).slice(0,10);
+  return picked.map(item=>{
+    const mix=shuffleArray(item.options.map((text,i)=>({text,isCorrect:i===item.ans})));
+    return {q:item.q,explain:item.explain,options:mix.map(x=>x.text),ans:mix.findIndex(x=>x.isCorrect)};
+  });
+}
+function stopSpeech(){if("speechSynthesis" in window)speechSynthesis.cancel()}
+function speakText(text){if(!("speechSynthesis" in window)){alert("目前瀏覽器不支援報讀功能，建議使用 Chrome、Edge 或 Safari。");return}stopSpeech();const u=new SpeechSynthesisUtterance(text);u.lang="zh-TW";u.rate=.88;u.pitch=1;speechSynthesis.speak(u)}
+function beginAttempt(){stopSpeech();currentQuiz=buildQuiz();index=0;score=0;selected=[];locked=false;startScreen.classList.add("hidden");resultScreen.classList.add("hidden");quizScreen.classList.remove("hidden");renderQuestion();window.scrollTo({top:0,behavior:"smooth"})}
+function renderQuestion(){
+  locked=false;nextBtn.classList.add("hidden");explainEl.className="explain";explainEl.innerHTML="";
+  $("#attemptText").textContent=`第 ${attempt} 次機會`;const item=currentQuiz[index];questionEl.textContent=item.q;answersEl.innerHTML="";
+  count.textContent=`第 ${index+1} / 10 題`;bar.style.width=`${index*10}%`;
+  item.options.forEach((opt,i)=>{
+    const row=document.createElement("div");row.className="answer-row";
+    const b=document.createElement("button");b.className="answer";b.innerHTML=`<strong>${String.fromCharCode(65+i)}.</strong> ${opt}`;b.onclick=()=>choose(i);
+    const s=document.createElement("button");s.className="answer-speak";s.type="button";s.textContent="🔊";s.title=`報讀選項 ${String.fromCharCode(65+i)}`;s.onclick=e=>{e.stopPropagation();speakText(`${String.fromCharCode(65+i)}，${opt}`)};
+    row.append(b,s);answersEl.appendChild(row);
+  });
+}
+function choose(choice){
+  if(locked)return;locked=true;const item=currentQuiz[index];selected[index]=choice;const buttons=[...answersEl.querySelectorAll(".answer")];
+  buttons.forEach((b,i)=>{if(i===item.ans)b.classList.add("correct");else if(i===choice)b.classList.add("wrong");else b.classList.add("dim");b.disabled=true});
+  const correct=choice===item.ans;if(correct)score++;
+  explainEl.className=`explain show ${correct?"good":"bad"}`;explainEl.innerHTML=`<b>${correct?"✅ 答對了！":"❌ 再想一想"}</b><br>${item.explain}<br><span style="color:#667085">正確答案：${String.fromCharCode(65+item.ans)}. ${item.options[item.ans]}</span>`;
+  nextBtn.textContent=index===9?"看結果 →":"下一題 →";nextBtn.classList.remove("hidden");bar.style.width=`${(index+1)*10}%`;
+}
+function next(){stopSpeech();if(index<9){index++;renderQuestion();window.scrollTo({top:0,behavior:"smooth"})}else showResult()}
+
+function nextParticipant(){
+  stopSpeech();
+  attempt=1;
+  index=0;
+  score=0;
+  selected=[];
+  locked=false;
+  currentQuiz=[];
+  resultScreen.classList.add("hidden");
+  quizScreen.classList.add("hidden");
+  startScreen.classList.remove("hidden");
+  $("#review").innerHTML="";
+  $("#passBox").classList.add("hidden");
+  $("#resultButtons").innerHTML="";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function showResult(){
+  quizScreen.classList.add("hidden");resultScreen.classList.remove("hidden");const passed=score===10;
+  $("#resultIcon").textContent=passed?"🎉":"💪";$("#resultTitle").textContent=passed?"闖關成功！":attempt===1?"還有一次機會！":"本次挑戰結束";$("#scoreText").textContent=`答對 ${score} / 10 題`;$("#passBox").classList.toggle("hidden",!passed);
+  $("#resultMsg").textContent=passed?"10 題全部答對！你已經完成特教宣導挑戰。":attempt===1?"看看錯題說明，再重新挑戰一次！第二次會重新抽取 10 題，選項也會重新排列。":"這次沒有全對，但你已完成兩次挑戰，可以看看錯題，把友善與尊重記起來。";
+  renderReview();const rb=$("#resultButtons");rb.innerHTML="";
+  if(passed){
+    const nextPerson=document.createElement("button");
+    nextPerson.className="btn-primary";
+    nextPerson.textContent="👤 換下一位";
+    nextPerson.onclick=nextParticipant;
+    rb.append(nextPerson);
+
+    const learn=document.createElement("a");
+    learn.className="btn-secondary";
+    learn.href="index.html";
+    learn.style.textDecoration="none";
+    learn.textContent="回到學習站";
+    rb.append(learn);
+    celebrate();
+  }else if(attempt===1){
+    const retry=document.createElement("button");
+    retry.className="btn-primary";
+    retry.textContent="🔄 使用第 2 次機會";
+    retry.onclick=()=>{attempt=2;beginAttempt()};
+    rb.append(retry);
+
+    const nextPerson=document.createElement("button");
+    nextPerson.className="btn-secondary";
+    nextPerson.textContent="👤 換下一位";
+    nextPerson.onclick=nextParticipant;
+    rb.append(nextPerson);
+  }else{
+    const nextPerson=document.createElement("button");
+    nextPerson.className="btn-primary";
+    nextPerson.textContent="👤 換下一位";
+    nextPerson.onclick=nextParticipant;
+    rb.append(nextPerson);
+
+    const learn=document.createElement("a");
+    learn.className="btn-secondary";
+    learn.href="index.html";
+    learn.style.textDecoration="none";
+    learn.textContent="回到學習站";
+    rb.append(learn);
+  }
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function renderReview(){const wrongs=currentQuiz.map((q,i)=>({q,i,choice:selected[i]})).filter(x=>x.choice!==x.q.ans);const review=$("#review");if(!wrongs.length){review.innerHTML="<h3>錯題回顧</h3><div class='review-item'><span class='ok'>🌟 10 題全部答對！</span></div>";return}review.innerHTML="<h3>錯題回顧</h3>"+wrongs.map(({q,i,choice})=>`<div class="review-item"><div class="q">第 ${i+1} 題：${q.q}</div><div class="no">你的答案：${String.fromCharCode(65+choice)}. ${q.options[choice]}</div><div class="ok">正確答案：${String.fromCharCode(65+q.ans)}. ${q.options[q.ans]}</div><div style="margin-top:6px;color:#667085;line-height:1.65">${q.explain}</div></div>`).join("")}
+function celebrate(){const c=$("#confetti");c.innerHTML="";const icons=["🎉","⭐","🌈","✨","🎊"];for(let i=0;i<30;i++){const x=document.createElement("i");x.textContent=icons[Math.floor(Math.random()*icons.length)];x.style.left=Math.random()*100+"vw";x.style.fontSize=(18+Math.random()*20)+"px";x.style.animationDelay=Math.random()*.8+"s";x.style.animationDuration=(1.7+Math.random()*1.5)+"s";c.appendChild(x)}setTimeout(()=>c.innerHTML="",3500)}
+$("#startBtn").onclick=()=>{attempt=1;beginAttempt()};$("#nextBtn").onclick=next;$("#questionSpeakBtn").onclick=()=>speakText(`第 ${index+1} 題。${currentQuiz[index].q}`);
+</script>
+</body>
+</html>
