@@ -14,12 +14,12 @@ body{display:flex;justify-content:center;padding:20px 12px 40px}.app{width:min(9
 button,a{font:inherit}button{border:0;border-radius:16px;padding:14px 18px;font-size:17px;font-weight:900;cursor:pointer}.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}.btn-secondary{background:#f4f7fb;color:#344054;border:1px solid #e4e7ec}.btn-submit{background:#267a5d;color:#fff}.hidden{display:none!important}button:disabled{opacity:.42;cursor:not-allowed}
 .progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:8px}.progress{height:12px;background:#f1ece6;border-radius:999px;overflow:hidden;flex:1}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#ffd166);transition:.3s}.count{font-weight:900;min-width:86px;text-align:right}.answered{font-size:14px;color:var(--muted);font-weight:800;text-align:right;margin-bottom:8px}.attempt-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}.attempt{text-align:left;font-weight:900;color:#7a563e}.btn-restart{padding:9px 13px;border-radius:13px;background:#fff3f0;color:#a33b31;border:1px solid #efc3bd;font-size:14px;white-space:nowrap}
 .question-row{display:flex;align-items:flex-start;gap:12px}.question{font-size:clamp(23px,3.7vw,33px);line-height:1.5;margin:14px 0 20px;font-weight:900;flex:1}.speak-icon{flex:0 0 auto;min-width:52px;height:52px;padding:0 14px;border-radius:16px;background:#eef7ff;border:2px solid #9dcbed;color:#245b7a;font-size:22px;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 5px 14px rgba(49,111,151,.12)}.speak-icon span{font-size:15px;font-weight:900;white-space:nowrap}.speak-icon.speaking{background:#dff2ff;border-color:#5ba9d5}.speak-icon:focus-visible{outline:3px solid rgba(91,169,213,.35);outline-offset:2px}@media(max-width:560px){.question-row{display:block}.speak-icon{margin:-8px 0 16px auto;height:46px}.speak-icon span{font-size:14px}}
-.answers{display:grid;gap:12px}.answer{width:100%;text-align:left;background:#fff;border:2px solid var(--line);color:var(--ink);padding:16px 18px;border-radius:18px;font-size:17px;line-height:1.55}.answer:hover{border-color:#ffc18c;background:#fffaf5}.answer.selected{border-color:#ff9b5c;background:#fff3e8;box-shadow:0 0 0 3px rgba(255,138,76,.10)}
+.answers{display:grid;gap:12px}.answer-row{display:grid;grid-template-columns:minmax(0,1fr) 52px;gap:9px;align-items:stretch}.answer{width:100%;text-align:left;background:#fff;border:2px solid var(--line);color:var(--ink);padding:16px 18px;border-radius:18px;font-size:17px;line-height:1.55}.answer:hover{border-color:#ffc18c;background:#fffaf5}.answer.selected{border-color:#ff9b5c;background:#fff3e8;box-shadow:0 0 0 3px rgba(255,138,76,.10)}.answer-speak{width:52px;min-width:52px;height:100%;min-height:56px;padding:0;border-radius:16px;background:#eef7ff;border:2px solid #b6d9ef;color:#245b7a;font-size:21px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(49,111,151,.10)}.answer-speak:hover{background:#e2f3ff;border-color:#7eb9dc}.answer-speak.speaking{background:#d6efff;border-color:#4e9dcb}.answer-speak:focus-visible{outline:3px solid rgba(91,169,213,.35);outline-offset:2px}
 .nav{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;margin-top:22px}.nav button{min-height:52px}.submit-note{margin-top:12px;text-align:center;color:var(--muted);font-size:14px;line-height:1.6}
 .result{text-align:center}.result .big{font-size:72px;margin:2px 0 8px}.result h2{font-size:clamp(30px,5vw,46px);margin:8px 0}.score{font-size:26px;font-weight:1000;margin:10px 0}.passbox{margin:20px auto;max-width:580px;padding:24px;border-radius:22px;background:linear-gradient(135deg,#fff5d8,#effcff);border:2px dashed #efb359}.ticket{font-size:24px;font-weight:1000;color:#7d4a25}
 .review{text-align:left;margin-top:24px}.review h3{font-size:22px}.review-item{padding:14px 16px;border:1px solid #e8e8e8;border-radius:16px;margin:10px 0}.review-item .q{font-weight:900;margin-bottom:6px}.ok{color:var(--good);font-weight:900}.no{color:var(--bad);font-weight:900}.footer{text-align:center;color:#8a7a6d;font-size:13px;margin-top:14px}
 .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;top:-20px;font-style:normal;animation:fall 2.2s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
-@media(max-width:720px){.hero,.quiz,.result{padding:20px}.hero-grid{grid-template-columns:1fr}.rules{grid-template-columns:1fr}.art{min-height:170px;font-size:52px}.nav{grid-template-columns:1fr 1fr}.btn-submit{grid-column:1/-1}.answered{text-align:left}.attempt-row{align-items:center}}
+@media(max-width:720px){.hero,.quiz,.result{padding:20px}.hero-grid{grid-template-columns:1fr}.rules{grid-template-columns:1fr}.art{min-height:170px;font-size:52px}.nav{grid-template-columns:1fr 1fr}.btn-submit{grid-column:1/-1}.answered{text-align:left}.attempt-row{align-items:center}.answer-row{grid-template-columns:minmax(0,1fr) 48px;gap:7px}.answer-speak{width:48px;min-width:48px}}
 </style>
 </head>
 <body>
@@ -115,7 +115,7 @@ function buildQuiz(){
     return {q:item.q,explain:item.explain,options:mix.map(x=>x.text),ans:mix.findIndex(x=>x.isCorrect)};
   });
 }
-function stopSpeech(){if("speechSynthesis" in window)speechSynthesis.cancel();const btn=$("#questionSpeakBtn");if(btn)btn.classList.remove("speaking")}
+function stopSpeech(){if("speechSynthesis" in window)speechSynthesis.cancel();document.querySelectorAll(".speaking").forEach(el=>el.classList.remove("speaking"))}
 function speakQuestion(){
   if(!("speechSynthesis" in window)){alert("目前瀏覽器不支援報讀功能，建議使用 Chrome、Edge 或 Safari。");return}
   if(!currentQuiz[index])return;
@@ -126,6 +126,19 @@ function speakQuestion(){
   u.onstart=()=>btn.classList.add("speaking");
   u.onend=()=>btn.classList.remove("speaking");
   u.onerror=()=>btn.classList.remove("speaking");
+  speechSynthesis.speak(u);
+}
+function speakAnswer(optionIndex,button){
+  if(!("speechSynthesis" in window)){alert("目前瀏覽器不支援報讀功能，建議使用 Chrome、Edge 或 Safari。");return}
+  const item=currentQuiz[index];
+  if(!item||!item.options[optionIndex])return;
+  stopSpeech();
+  const letter=String.fromCharCode(65+optionIndex);
+  const u=new SpeechSynthesisUtterance(`選項 ${letter}。${item.options[optionIndex]}`);
+  u.lang="zh-TW";u.rate=.88;u.pitch=1;
+  u.onstart=()=>button.classList.add("speaking");
+  u.onend=()=>button.classList.remove("speaking");
+  u.onerror=()=>button.classList.remove("speaking");
   speechSynthesis.speak(u);
 }
 function beginAttempt(){
@@ -142,13 +155,30 @@ function renderQuestion(){
   $("#answeredText").textContent=`已作答 ${answeredCount} / 10 題`;
   bar.style.width=`${answeredCount*10}%`;
   item.options.forEach((opt,i)=>{
+    const row=document.createElement("div");
+    row.className="answer-row";
+
     const b=document.createElement("button");
     b.className="answer"+(selected[index]===i?" selected":"");
     b.type="button";
     b.setAttribute("aria-pressed",selected[index]===i?"true":"false");
     b.innerHTML=`<strong>${String.fromCharCode(65+i)}.</strong> ${opt}`;
     b.onclick=()=>{selected[index]=i;renderQuestion()};
-    answersEl.appendChild(b);
+
+    const speakBtn=document.createElement("button");
+    speakBtn.className="answer-speak";
+    speakBtn.type="button";
+    speakBtn.textContent="🔊";
+    speakBtn.title=`報讀選項 ${String.fromCharCode(65+i)}`;
+    speakBtn.setAttribute("aria-label",`報讀選項 ${String.fromCharCode(65+i)}：${opt}`);
+    speakBtn.onclick=(event)=>{
+      event.stopPropagation();
+      speakAnswer(i,speakBtn);
+    };
+
+    row.appendChild(b);
+    row.appendChild(speakBtn);
+    answersEl.appendChild(row);
   });
   $("#prevBtn").disabled=index===0;
   $("#nextBtn").disabled=index===9;
