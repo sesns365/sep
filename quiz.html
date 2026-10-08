@@ -11,15 +11,15 @@
 body{display:flex;justify-content:center;padding:20px 12px 40px}.app{width:min(900px,100%)}.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.brand{display:flex;align-items:center;gap:10px;font-weight:900}.brand-icon{width:42px;height:42px;border-radius:14px;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow);font-size:24px}.pill{font-size:14px;font-weight:800;background:#fff;border:1px solid #f2dcc7;padding:8px 12px;border-radius:999px}
 .card{background:#fff;border:1px solid #eadfd3;border-radius:24px;box-shadow:var(--shadow);overflow:hidden}.hero,.quiz,.result{padding:30px}.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;align-items:center}.hero h1{font-size:clamp(30px,5vw,50px);line-height:1.14;margin:10px 0 14px}.hero p{font-size:18px;line-height:1.8;color:var(--muted)}.art{min-height:230px;border-radius:22px;background:linear-gradient(145deg,#fff4df,#eefbff);display:grid;place-items:center;text-align:center;font-size:68px;padding:18px}.art small{display:block;font-size:15px;color:var(--muted);font-weight:800;margin-top:12px}
 .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.rule{background:#fffaf4;border:1px solid #f1e3d7;border-radius:16px;padding:14px;text-align:center}.rule strong{display:block;font-size:21px;color:#8b4f2c}.rule span{font-size:13px;color:var(--muted)}
-button,a{font:inherit}button{border:0;border-radius:16px;padding:14px 18px;font-size:17px;font-weight:900;cursor:pointer}.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}.btn-secondary{background:#f4f7fb;color:#344054;border:1px solid #e4e7ec}.hidden{display:none!important}
-.progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:18px}.progress{height:12px;background:#f1ece6;border-radius:999px;overflow:hidden;flex:1}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#ffd166);transition:.3s}.count{font-weight:900;min-width:78px;text-align:right}.attempt{text-align:center;font-weight:900;color:#7a563e;margin-bottom:8px}
-.question-row{display:flex;align-items:flex-start;gap:10px}.question{font-size:clamp(23px,3.7vw,33px);line-height:1.5;margin:14px 0 20px;font-weight:900;flex:1}.speak-icon,.answer-speak{flex:0 0 auto;width:46px;height:46px;padding:0;border-radius:14px;background:#f4f7fb;border:1px solid #e4e7ec;color:#344054;font-size:20px}.speak-icon{margin-top:14px}
-.answers{display:grid;gap:12px}.answer-row{display:grid;grid-template-columns:1fr 48px;gap:8px;align-items:stretch}.answer{width:100%;text-align:left;background:#fff;border:2px solid var(--line);color:var(--ink);padding:16px 18px;border-radius:18px;font-size:17px;line-height:1.55}.answer.correct{border-color:#74c9ad;background:#eefaf6}.answer.wrong{border-color:#ef9aa5;background:#fff2f4}.answer.dim{opacity:.62}
-.explain{display:none;margin-top:18px;padding:18px;border-radius:18px;background:#f8fafc;border:1px solid #e6eaf0;line-height:1.75}.explain.show{display:block}.explain.good{background:#eefaf6}.explain.bad{background:#fff4f5}.nav{display:flex;justify-content:flex-end;margin-top:18px}
+button,a{font:inherit}button{border:0;border-radius:16px;padding:14px 18px;font-size:17px;font-weight:900;cursor:pointer}.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}.btn-secondary{background:#f4f7fb;color:#344054;border:1px solid #e4e7ec}.btn-submit{background:#267a5d;color:#fff}.hidden{display:none!important}button:disabled{opacity:.42;cursor:not-allowed}
+.progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:8px}.progress{height:12px;background:#f1ece6;border-radius:999px;overflow:hidden;flex:1}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#ffd166);transition:.3s}.count{font-weight:900;min-width:86px;text-align:right}.answered{font-size:14px;color:var(--muted);font-weight:800;text-align:right;margin-bottom:8px}.attempt-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}.attempt{text-align:left;font-weight:900;color:#7a563e}.btn-restart{padding:9px 13px;border-radius:13px;background:#fff3f0;color:#a33b31;border:1px solid #efc3bd;font-size:14px;white-space:nowrap}
+.question-row{display:flex;align-items:flex-start;gap:10px}.question{font-size:clamp(23px,3.7vw,33px);line-height:1.5;margin:14px 0 20px;font-weight:900;flex:1}.speak-icon{flex:0 0 auto;width:46px;height:46px;padding:0;border-radius:14px;background:#f4f7fb;border:1px solid #e4e7ec;color:#344054;font-size:20px;margin-top:14px}
+.answers{display:grid;gap:12px}.answer{width:100%;text-align:left;background:#fff;border:2px solid var(--line);color:var(--ink);padding:16px 18px;border-radius:18px;font-size:17px;line-height:1.55}.answer:hover{border-color:#ffc18c;background:#fffaf5}.answer.selected{border-color:#ff9b5c;background:#fff3e8;box-shadow:0 0 0 3px rgba(255,138,76,.10)}
+.nav{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;margin-top:22px}.nav button{min-height:52px}.submit-note{margin-top:12px;text-align:center;color:var(--muted);font-size:14px;line-height:1.6}
 .result{text-align:center}.result .big{font-size:72px;margin:2px 0 8px}.result h2{font-size:clamp(30px,5vw,46px);margin:8px 0}.score{font-size:26px;font-weight:1000;margin:10px 0}.passbox{margin:20px auto;max-width:580px;padding:24px;border-radius:22px;background:linear-gradient(135deg,#fff5d8,#effcff);border:2px dashed #efb359}.ticket{font-size:24px;font-weight:1000;color:#7d4a25}
 .review{text-align:left;margin-top:24px}.review h3{font-size:22px}.review-item{padding:14px 16px;border:1px solid #e8e8e8;border-radius:16px;margin:10px 0}.review-item .q{font-weight:900;margin-bottom:6px}.ok{color:var(--good);font-weight:900}.no{color:var(--bad);font-weight:900}.footer{text-align:center;color:#8a7a6d;font-size:13px;margin-top:14px}
 .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;top:-20px;font-style:normal;animation:fall 2.2s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
-@media(max-width:720px){.hero,.quiz,.result{padding:20px}.hero-grid{grid-template-columns:1fr}.rules{grid-template-columns:1fr}.art{min-height:170px;font-size:52px}}
+@media(max-width:720px){.hero,.quiz,.result{padding:20px}.hero-grid{grid-template-columns:1fr}.rules{grid-template-columns:1fr}.art{min-height:170px;font-size:52px}.nav{grid-template-columns:1fr 1fr}.btn-submit{grid-column:1/-1}.answered{text-align:left}.attempt-row{align-items:center}}
 </style>
 </head>
 <body>
@@ -31,10 +31,10 @@ button,a{font:inherit}button{border:0;border-radius:16px;padding:14px 18px;font-
       <div>
         <div class="pill" style="display:inline-block">認識差異・友善同行</div>
         <h1>特教宣導<br>闖關小遊戲</h1>
-        <p>每次會從題庫中隨機抽出 10 題，題目順序與四個選項都會重新排列。</p>
+        <p>每次會從題庫中隨機抽出 10 題。作答時可以切換上一題與下一題，也可以修改答案，完成後再按「交卷」。</p>
         <div class="rules">
-          <div class="rule"><strong>隨機 10 題</strong><span>每次題目可能不同</span></div>
-          <div class="rule"><strong>全對過關</strong><span>10 / 10 才能拿獎品</span></div>
+          <div class="rule"><strong>隨機 10 題</strong><span>題目與選項重新排列</span></div>
+          <div class="rule"><strong>最後交卷</strong><span>交卷前都能修改答案</span></div>
           <div class="rule"><strong>2 次機會</strong><span>第二次重新抽題</span></div>
         </div>
         <button id="startBtn" class="btn-primary">開始挑戰 🚀</button>
@@ -45,12 +45,17 @@ button,a{font:inherit}button{border:0;border-radius:16px;padding:14px 18px;font-
   </section>
 
   <section id="quizScreen" class="card quiz hidden">
-    <div id="attemptText" class="attempt"></div>
+    <div class="attempt-row"><div id="attemptText" class="attempt"></div><button id="restartBtn" class="btn-restart" type="button">↻ 重新開始</button></div>
     <div class="progress-wrap"><div class="progress"><div id="bar" class="bar"></div></div><div id="count" class="count"></div></div>
-    <div class="question-row"><div id="question" class="question"></div><button id="questionSpeakBtn" class="speak-icon" type="button" title="報讀題目">🔊</button></div>
+    <div id="answeredText" class="answered"></div>
+    <div class="question-row"><div id="question" class="question"></div><button id="questionSpeakBtn" class="speak-icon" type="button" title="報讀題目" aria-label="報讀題目">🔊</button></div>
     <div id="answers" class="answers"></div>
-    <div id="explain" class="explain"></div>
-    <div class="nav"><button id="nextBtn" class="btn-primary hidden">下一題 →</button></div>
+    <div class="nav">
+      <button id="prevBtn" class="btn-secondary" type="button">← 上一題</button>
+      <button id="nextBtn" class="btn-secondary" type="button">下一題 →</button>
+      <button id="submitBtn" class="btn-submit" type="button">交卷 ✓</button>
+    </div>
+    <div class="submit-note">交卷前可以自由切換題目並修改答案；交卷後才會顯示結果。</div>
   </section>
 
   <section id="resultScreen" class="card result hidden">
@@ -65,6 +70,7 @@ button,a{font:inherit}button{border:0;border-radius:16px;padding:14px 18px;font-
 
 <script>
 const questionBank=[
+
 {q:"看到同學讀題比較慢，最友善的做法是什麼？",options:["催他快一點完成","笑他讀得太慢","多給一點閱讀時間","直接幫他寫答案"],ans:2,explain:"每個人的閱讀速度不同。多給一點時間，比催促或直接代替作答更能幫助同學學習。"},
 {q:"有些同學上課時需要戴耳罩，可能是因為什麼？",options:["不想聽老師上課","想減少聲音干擾","想和別人不一樣","老師對他比較好"],ans:1,explain:"有些同學對聲音較敏感，耳罩可能是幫助專心的一種支持。"},
 {q:"如果同學使用輪椅，哪一個做法比較適合？",options:["直接幫他推輪椅","保持走道暢通","所有事情替他做","請他不要參加活動"],ans:1,explain:"保持通道暢通很重要。若想幫忙，也應先詢問對方是否需要。"},
@@ -97,9 +103,9 @@ const questionBank=[
 {q:"如果同學在團體活動中需要多一次示範，最適合怎麼做？",options:["給他一次示範","叫他自己猜","直接取消參加","大家一起催促"],ans:0,explain:"多一次清楚示範，可以幫助理解規則與步驟。"}
 ];
 
-let attempt=1,index=0,score=0,selected=[],locked=false,currentQuiz=[];
+let attempt=1,index=0,score=0,selected=[],currentQuiz=[];
 const $=s=>document.querySelector(s);
-const startScreen=$("#startScreen"),quizScreen=$("#quizScreen"),resultScreen=$("#resultScreen"),questionEl=$("#question"),answersEl=$("#answers"),explainEl=$("#explain"),nextBtn=$("#nextBtn"),bar=$("#bar"),count=$("#count");
+const startScreen=$("#startScreen"),quizScreen=$("#quizScreen"),resultScreen=$("#resultScreen"),questionEl=$("#question"),answersEl=$("#answers"),bar=$("#bar"),count=$("#count");
 
 function shuffleArray(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function buildQuiz(){
@@ -110,95 +116,101 @@ function buildQuiz(){
   });
 }
 function stopSpeech(){if("speechSynthesis" in window)speechSynthesis.cancel()}
-function speakText(text){if(!("speechSynthesis" in window)){alert("目前瀏覽器不支援報讀功能，建議使用 Chrome、Edge 或 Safari。");return}stopSpeech();const u=new SpeechSynthesisUtterance(text);u.lang="zh-TW";u.rate=.88;u.pitch=1;speechSynthesis.speak(u)}
-function beginAttempt(){stopSpeech();currentQuiz=buildQuiz();index=0;score=0;selected=[];locked=false;startScreen.classList.add("hidden");resultScreen.classList.add("hidden");quizScreen.classList.remove("hidden");renderQuestion();window.scrollTo({top:0,behavior:"smooth"})}
-function renderQuestion(){
-  locked=false;nextBtn.classList.add("hidden");explainEl.className="explain";explainEl.innerHTML="";
-  $("#attemptText").textContent=`第 ${attempt} 次機會`;const item=currentQuiz[index];questionEl.textContent=item.q;answersEl.innerHTML="";
-  count.textContent=`第 ${index+1} / 10 題`;bar.style.width=`${index*10}%`;
-  item.options.forEach((opt,i)=>{
-    const row=document.createElement("div");row.className="answer-row";
-    const b=document.createElement("button");b.className="answer";b.innerHTML=`<strong>${String.fromCharCode(65+i)}.</strong> ${opt}`;b.onclick=()=>choose(i);
-    const s=document.createElement("button");s.className="answer-speak";s.type="button";s.textContent="🔊";s.title=`報讀選項 ${String.fromCharCode(65+i)}`;s.onclick=e=>{e.stopPropagation();speakText(`${String.fromCharCode(65+i)}，${opt}`)};
-    row.append(b,s);answersEl.appendChild(row);
-  });
-}
-function choose(choice){
-  if(locked)return;locked=true;const item=currentQuiz[index];selected[index]=choice;const buttons=[...answersEl.querySelectorAll(".answer")];
-  buttons.forEach((b,i)=>{if(i===item.ans)b.classList.add("correct");else if(i===choice)b.classList.add("wrong");else b.classList.add("dim");b.disabled=true});
-  const correct=choice===item.ans;if(correct)score++;
-  explainEl.className=`explain show ${correct?"good":"bad"}`;explainEl.innerHTML=`<b>${correct?"✅ 答對了！":"❌ 再想一想"}</b><br>${item.explain}<br><span style="color:#667085">正確答案：${String.fromCharCode(65+item.ans)}. ${item.options[item.ans]}</span>`;
-  nextBtn.textContent=index===9?"看結果 →":"下一題 →";nextBtn.classList.remove("hidden");bar.style.width=`${(index+1)*10}%`;
-}
-function next(){stopSpeech();if(index<9){index++;renderQuestion();window.scrollTo({top:0,behavior:"smooth"})}else showResult()}
-
-function nextParticipant(){
+function speakQuestion(){
+  if(!("speechSynthesis" in window)){alert("目前瀏覽器不支援報讀功能，建議使用 Chrome、Edge 或 Safari。");return}
   stopSpeech();
-  attempt=1;
-  index=0;
-  score=0;
-  selected=[];
-  locked=false;
-  currentQuiz=[];
-  resultScreen.classList.add("hidden");
-  quizScreen.classList.add("hidden");
-  startScreen.classList.remove("hidden");
-  $("#review").innerHTML="";
-  $("#passBox").classList.add("hidden");
-  $("#resultButtons").innerHTML="";
+  const u=new SpeechSynthesisUtterance(`第 ${index+1} 題。${currentQuiz[index].q}`);
+  u.lang="zh-TW";u.rate=.88;u.pitch=1;speechSynthesis.speak(u);
+}
+function beginAttempt(){
+  stopSpeech();currentQuiz=buildQuiz();index=0;score=0;selected=Array(10).fill(null);
+  startScreen.classList.add("hidden");resultScreen.classList.add("hidden");quizScreen.classList.remove("hidden");
+  renderQuestion();window.scrollTo({top:0,behavior:"smooth"});
+}
+function renderQuestion(){
+  const item=currentQuiz[index];
+  $("#attemptText").textContent=`第 ${attempt} 次機會`;
+  questionEl.textContent=item.q;answersEl.innerHTML="";
+  count.textContent=`第 ${index+1} / 10 題`;
+  const answeredCount=selected.filter(v=>v!==null).length;
+  $("#answeredText").textContent=`已作答 ${answeredCount} / 10 題`;
+  bar.style.width=`${answeredCount*10}%`;
+  item.options.forEach((opt,i)=>{
+    const b=document.createElement("button");
+    b.className="answer"+(selected[index]===i?" selected":"");
+    b.type="button";
+    b.setAttribute("aria-pressed",selected[index]===i?"true":"false");
+    b.innerHTML=`<strong>${String.fromCharCode(65+i)}.</strong> ${opt}`;
+    b.onclick=()=>{selected[index]=i;renderQuestion()};
+    answersEl.appendChild(b);
+  });
+  $("#prevBtn").disabled=index===0;
+  $("#nextBtn").disabled=index===9;
+}
+function goToQuestion(newIndex){
+  if(newIndex<0||newIndex>9)return;
+  stopSpeech();index=newIndex;renderQuestion();
+  quizScreen.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function submitQuiz(){
+  stopSpeech();
+  const firstUnanswered=selected.findIndex(v=>v===null);
+  if(firstUnanswered!==-1){
+    index=firstUnanswered;renderQuestion();
+    alert(`還有 ${selected.filter(v=>v===null).length} 題尚未作答，已帶你前往第一題未作答題目。`);
+    return;
+  }
+  score=currentQuiz.reduce((sum,q,i)=>sum+(selected[i]===q.ans?1:0),0);
+  showResult();
+}
+function resetToStart(){
+  stopSpeech();attempt=1;index=0;score=0;selected=[];currentQuiz=[];
+  resultScreen.classList.add("hidden");quizScreen.classList.add("hidden");startScreen.classList.remove("hidden");
+  $("#review").innerHTML="";$("#passBox").classList.add("hidden");$("#resultButtons").innerHTML="";
   window.scrollTo({top:0,behavior:"smooth"});
 }
-
+function restartDuringQuiz(){
+  const ok=confirm("目前作答內容會清除，並回到第 1 次機會（共有 2 次）的開始畫面。確定要重新開始嗎？");
+  if(ok) resetToStart();
+}
+function nextParticipant(){
+  resetToStart();
+}
 function showResult(){
   quizScreen.classList.add("hidden");resultScreen.classList.remove("hidden");const passed=score===10;
-  $("#resultIcon").textContent=passed?"🎉":"💪";$("#resultTitle").textContent=passed?"闖關成功！":attempt===1?"還有一次機會！":"本次挑戰結束";$("#scoreText").textContent=`答對 ${score} / 10 題`;$("#passBox").classList.toggle("hidden",!passed);
-  $("#resultMsg").textContent=passed?"10 題全部答對！你已經完成特教宣導挑戰。":attempt===1?"看看錯題說明，再重新挑戰一次！第二次會重新抽取 10 題，選項也會重新排列。":"這次沒有全對，但你已完成兩次挑戰，可以看看錯題，把友善與尊重記起來。";
-  renderReview();const rb=$("#resultButtons");rb.innerHTML="";
+  $("#resultIcon").textContent=passed?"🎉":"💪";
+  $("#resultTitle").textContent=passed?"闖關成功！":attempt===1?"還有一次機會！":"本次挑戰結束";
+  $("#scoreText").textContent=`答對 ${score} / 10 題`;
+  $("#passBox").classList.toggle("hidden",!passed);
+  $("#resultMsg").textContent=passed?"10 題全部答對！你已經完成特教宣導挑戰。":attempt===1?"看看錯題說明，再使用第 2 次機會重新挑戰。第二次會重新抽取 10 題，選項也會重新排列。":"這次沒有全對，但你已完成兩次挑戰，可以看看錯題，把友善與尊重記起來。";
+  renderReview();
+  const rb=$("#resultButtons");rb.innerHTML="";
   if(passed){
-    const nextPerson=document.createElement("button");
-    nextPerson.className="btn-primary";
-    nextPerson.textContent="👤 換下一位";
-    nextPerson.onclick=nextParticipant;
-    rb.append(nextPerson);
-
-    const learn=document.createElement("a");
-    learn.className="btn-secondary";
-    learn.href="index.html";
-    learn.style.textDecoration="none";
-    learn.textContent="回到學習站";
-    rb.append(learn);
-    celebrate();
+    const nextPerson=document.createElement("button");nextPerson.className="btn-primary";nextPerson.textContent="👤 換下一位";nextPerson.onclick=nextParticipant;rb.append(nextPerson);
+    const learn=document.createElement("a");learn.className="btn-secondary";learn.href="index.html";learn.style.textDecoration="none";learn.textContent="回到學習站";rb.append(learn);celebrate();
   }else if(attempt===1){
-    const retry=document.createElement("button");
-    retry.className="btn-primary";
-    retry.textContent="🔄 使用第 2 次機會";
-    retry.onclick=()=>{attempt=2;beginAttempt()};
-    rb.append(retry);
-
-    const nextPerson=document.createElement("button");
-    nextPerson.className="btn-secondary";
-    nextPerson.textContent="👤 換下一位";
-    nextPerson.onclick=nextParticipant;
-    rb.append(nextPerson);
+    const retry=document.createElement("button");retry.className="btn-primary";retry.textContent="🔄 使用第 2 次機會";retry.onclick=()=>{attempt=2;beginAttempt()};rb.append(retry);
+    const nextPerson=document.createElement("button");nextPerson.className="btn-secondary";nextPerson.textContent="👤 換下一位";nextPerson.onclick=nextParticipant;rb.append(nextPerson);
   }else{
-    const nextPerson=document.createElement("button");
-    nextPerson.className="btn-primary";
-    nextPerson.textContent="👤 換下一位";
-    nextPerson.onclick=nextParticipant;
-    rb.append(nextPerson);
-
-    const learn=document.createElement("a");
-    learn.className="btn-secondary";
-    learn.href="index.html";
-    learn.style.textDecoration="none";
-    learn.textContent="回到學習站";
-    rb.append(learn);
+    const nextPerson=document.createElement("button");nextPerson.className="btn-primary";nextPerson.textContent="👤 換下一位";nextPerson.onclick=nextParticipant;rb.append(nextPerson);
+    const learn=document.createElement("a");learn.className="btn-secondary";learn.href="index.html";learn.style.textDecoration="none";learn.textContent="回到學習站";rb.append(learn);
   }
   window.scrollTo({top:0,behavior:"smooth"});
 }
-function renderReview(){const wrongs=currentQuiz.map((q,i)=>({q,i,choice:selected[i]})).filter(x=>x.choice!==x.q.ans);const review=$("#review");if(!wrongs.length){review.innerHTML="<h3>錯題回顧</h3><div class='review-item'><span class='ok'>🌟 10 題全部答對！</span></div>";return}review.innerHTML="<h3>錯題回顧</h3>"+wrongs.map(({q,i,choice})=>`<div class="review-item"><div class="q">第 ${i+1} 題：${q.q}</div><div class="no">你的答案：${String.fromCharCode(65+choice)}. ${q.options[choice]}</div><div class="ok">正確答案：${String.fromCharCode(65+q.ans)}. ${q.options[q.ans]}</div><div style="margin-top:6px;color:#667085;line-height:1.65">${q.explain}</div></div>`).join("")}
+function renderReview(){
+  const wrongs=currentQuiz.map((q,i)=>({q,i,choice:selected[i]})).filter(x=>x.choice!==x.q.ans);
+  const review=$("#review");
+  if(!wrongs.length){review.innerHTML="<h3>錯題回顧</h3><div class='review-item'><span class='ok'>🌟 10 題全部答對！</span></div>";return}
+  review.innerHTML="<h3>錯題回顧</h3>"+wrongs.map(({q,i,choice})=>`<div class="review-item"><div class="q">第 ${i+1} 題：${q.q}</div><div class="no">你的答案：${String.fromCharCode(65+choice)}. ${q.options[choice]}</div><div class="ok">正確答案：${String.fromCharCode(65+q.ans)}. ${q.options[q.ans]}</div><div style="margin-top:6px;color:#667085;line-height:1.65">${q.explain}</div></div>`).join("");
+}
 function celebrate(){const c=$("#confetti");c.innerHTML="";const icons=["🎉","⭐","🌈","✨","🎊"];for(let i=0;i<30;i++){const x=document.createElement("i");x.textContent=icons[Math.floor(Math.random()*icons.length)];x.style.left=Math.random()*100+"vw";x.style.fontSize=(18+Math.random()*20)+"px";x.style.animationDelay=Math.random()*.8+"s";x.style.animationDuration=(1.7+Math.random()*1.5)+"s";c.appendChild(x)}setTimeout(()=>c.innerHTML="",3500)}
-$("#startBtn").onclick=()=>{attempt=1;beginAttempt()};$("#nextBtn").onclick=next;$("#questionSpeakBtn").onclick=()=>speakText(`第 ${index+1} 題。${currentQuiz[index].q}`);
+
+$("#startBtn").onclick=()=>{attempt=1;beginAttempt()};
+$("#prevBtn").onclick=()=>goToQuestion(index-1);
+$("#nextBtn").onclick=()=>goToQuestion(index+1);
+$("#submitBtn").onclick=submitQuiz;
+$("#restartBtn").onclick=restartDuringQuiz;
+$("#questionSpeakBtn").onclick=speakQuestion;
 </script>
 </body>
 </html>
