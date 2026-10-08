@@ -13,7 +13,7 @@ body{display:flex;justify-content:center;padding:20px 12px 40px}.app{width:min(9
 .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.rule{background:#fffaf4;border:1px solid #f1e3d7;border-radius:16px;padding:14px;text-align:center}.rule strong{display:block;font-size:21px;color:#8b4f2c}.rule span{font-size:13px;color:var(--muted)}
 button,a{font:inherit}button{border:0;border-radius:16px;padding:14px 18px;font-size:17px;font-weight:900;cursor:pointer}.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}.btn-secondary{background:#f4f7fb;color:#344054;border:1px solid #e4e7ec}.btn-submit{background:#267a5d;color:#fff}.hidden{display:none!important}button:disabled{opacity:.42;cursor:not-allowed}
 .progress-wrap{display:flex;align-items:center;gap:12px;margin-bottom:8px}.progress{height:12px;background:#f1ece6;border-radius:999px;overflow:hidden;flex:1}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#ffd166);transition:.3s}.count{font-weight:900;min-width:86px;text-align:right}.answered{font-size:14px;color:var(--muted);font-weight:800;text-align:right;margin-bottom:8px}.attempt-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}.attempt{text-align:left;font-weight:900;color:#7a563e}.btn-restart{padding:9px 13px;border-radius:13px;background:#fff3f0;color:#a33b31;border:1px solid #efc3bd;font-size:14px;white-space:nowrap}
-.question-row{display:flex;align-items:flex-start;gap:10px}.question{font-size:clamp(23px,3.7vw,33px);line-height:1.5;margin:14px 0 20px;font-weight:900;flex:1}.speak-icon{flex:0 0 auto;width:46px;height:46px;padding:0;border-radius:14px;background:#f4f7fb;border:1px solid #e4e7ec;color:#344054;font-size:20px;margin-top:14px}
+.question-row{display:flex;align-items:flex-start;gap:12px}.question{font-size:clamp(23px,3.7vw,33px);line-height:1.5;margin:14px 0 20px;font-weight:900;flex:1}.speak-icon{flex:0 0 auto;min-width:52px;height:52px;padding:0 14px;border-radius:16px;background:#eef7ff;border:2px solid #9dcbed;color:#245b7a;font-size:22px;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 5px 14px rgba(49,111,151,.12)}.speak-icon span{font-size:15px;font-weight:900;white-space:nowrap}.speak-icon.speaking{background:#dff2ff;border-color:#5ba9d5}.speak-icon:focus-visible{outline:3px solid rgba(91,169,213,.35);outline-offset:2px}@media(max-width:560px){.question-row{display:block}.speak-icon{margin:-8px 0 16px auto;height:46px}.speak-icon span{font-size:14px}}
 .answers{display:grid;gap:12px}.answer{width:100%;text-align:left;background:#fff;border:2px solid var(--line);color:var(--ink);padding:16px 18px;border-radius:18px;font-size:17px;line-height:1.55}.answer:hover{border-color:#ffc18c;background:#fffaf5}.answer.selected{border-color:#ff9b5c;background:#fff3e8;box-shadow:0 0 0 3px rgba(255,138,76,.10)}
 .nav{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;margin-top:22px}.nav button{min-height:52px}.submit-note{margin-top:12px;text-align:center;color:var(--muted);font-size:14px;line-height:1.6}
 .result{text-align:center}.result .big{font-size:72px;margin:2px 0 8px}.result h2{font-size:clamp(30px,5vw,46px);margin:8px 0}.score{font-size:26px;font-weight:1000;margin:10px 0}.passbox{margin:20px auto;max-width:580px;padding:24px;border-radius:22px;background:linear-gradient(135deg,#fff5d8,#effcff);border:2px dashed #efb359}.ticket{font-size:24px;font-weight:1000;color:#7d4a25}
@@ -48,7 +48,7 @@ button,a{font:inherit}button{border:0;border-radius:16px;padding:14px 18px;font-
     <div class="attempt-row"><div id="attemptText" class="attempt"></div><button id="restartBtn" class="btn-restart" type="button">↻ 重新開始</button></div>
     <div class="progress-wrap"><div class="progress"><div id="bar" class="bar"></div></div><div id="count" class="count"></div></div>
     <div id="answeredText" class="answered"></div>
-    <div class="question-row"><div id="question" class="question"></div><button id="questionSpeakBtn" class="speak-icon" type="button" title="報讀題目" aria-label="報讀題目">🔊</button></div>
+    <div class="question-row"><div id="question" class="question"></div><button id="questionSpeakBtn" class="speak-icon" type="button" title="報讀目前題目" aria-label="報讀目前題目"><span aria-hidden="true">🔊</span><span>報讀題目</span></button></div>
     <div id="answers" class="answers"></div>
     <div class="nav">
       <button id="prevBtn" class="btn-secondary" type="button">← 上一題</button>
@@ -115,12 +115,18 @@ function buildQuiz(){
     return {q:item.q,explain:item.explain,options:mix.map(x=>x.text),ans:mix.findIndex(x=>x.isCorrect)};
   });
 }
-function stopSpeech(){if("speechSynthesis" in window)speechSynthesis.cancel()}
+function stopSpeech(){if("speechSynthesis" in window)speechSynthesis.cancel();const btn=$("#questionSpeakBtn");if(btn)btn.classList.remove("speaking")}
 function speakQuestion(){
   if(!("speechSynthesis" in window)){alert("目前瀏覽器不支援報讀功能，建議使用 Chrome、Edge 或 Safari。");return}
+  if(!currentQuiz[index])return;
   stopSpeech();
+  const btn=$("#questionSpeakBtn");
   const u=new SpeechSynthesisUtterance(`第 ${index+1} 題。${currentQuiz[index].q}`);
-  u.lang="zh-TW";u.rate=.88;u.pitch=1;speechSynthesis.speak(u);
+  u.lang="zh-TW";u.rate=.88;u.pitch=1;
+  u.onstart=()=>btn.classList.add("speaking");
+  u.onend=()=>btn.classList.remove("speaking");
+  u.onerror=()=>btn.classList.remove("speaking");
+  speechSynthesis.speak(u);
 }
 function beginAttempt(){
   stopSpeech();currentQuiz=buildQuiz();index=0;score=0;selected=Array(10).fill(null);
